@@ -1,3 +1,15 @@
+# u08 Backend for recipe app
+Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
+
+## Requirements
+
+- [ ] Kunna registrera konto i API:et
+- [ ] Nyttjar JWT baserade tokens för kommunikation eller implementation av Laravel Sanctum
+- [ ] Spara skapade receptlistor
+- [ ] CRUD på listor
+- [ ] Recept får endast förekomma en gång i en och samma lista, men kan förekomma i olika listor
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
