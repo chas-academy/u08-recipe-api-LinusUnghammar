@@ -3,8 +3,8 @@ Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
 
 ## Requirements
 
-- [ ] Kunna registrera konto i API:et (skapa användare, logga in, logga ut)
-- [ ] Nyttjar JWT baserade tokens för kommunikation eller implementation av Laravel Sanctum
+- [X] Kunna registrera konto i API:et (skapa användare, logga in, logga ut)
+- [X] Nyttjar JWT baserade tokens för kommunikation eller implementation av Laravel Sanctum
 - [ ] Spara skapade receptlistor
 - [ ] Användare ska kunna spara listor på recept. Listan har som minimumkrav att innehålla:
 - titel
