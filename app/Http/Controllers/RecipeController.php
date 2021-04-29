@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\RecipeList;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
 
-class RecipeListController extends Controller
+class RecipeController extends Controller
 {
 
     protected $user;
@@ -17,7 +17,6 @@ class RecipeListController extends Controller
     {
         $this->user = auth()->user();
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +24,7 @@ class RecipeListController extends Controller
      */
     public function index()
     {
-        return $this->user->recipeLists()->get(['title', 'id']);
+        return $this->user->recipes()->get(['id', 'api_id', 'recipelist_id', 'user_id']);
     }
 
     /**
@@ -47,21 +46,24 @@ class RecipeListController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required'
+            'api_id' => 'required',
+            'recipelist_id' => 'required',
         ]);
 
-        $list = new RecipeList();
-        $list->title = $request->title;
+        $recipe = new Recipe();
+        $recipe->api_id = $request->api_id;
+        $recipe->recipelist_id = $request->recipelist_id;
+        $recipe->user_id = $request->user_id;
 
-        if ($this->user->recipeLists()->save($list)) {
+        if ($this->user->recipes()->save($recipe)) {
             return response()->json([
                 'success' => true,
-                'recipeList' => $list
+                'recipe' => $recipe
             ]);
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'sorry, recipe list could not be added'
+                'message' => 'sorry, recipe could not be added'
             ]);
         }
     }
@@ -69,29 +71,29 @@ class RecipeListController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RecipeList  $recipeList
+     * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $list = $this->user->recipeLists()->find($id);
+        $recipe = $this->user->recipes()->find($id);
 
-        if (!$list) {
+        if(!$recipe){
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, list with id ' . $id . ' cannot be found'
+                'message' => 'Sorry, recipe with id '. $id . ' cannot be found'
             ]);
         }
-        return $list;
+        return $recipe;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RecipeList  $recipeList
+     * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function edit(RecipeList $recipeList)
+    public function edit(Recipe $recipe)
     {
         //
     }
@@ -100,59 +102,39 @@ class RecipeListController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RecipeList  $recipeList
+     * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Recipe $recipe)
     {
-        $list = $this->user->recipeLists()->find($id);
-
-        if (!$list) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Sorry, product with id ' . $id . ' cannot be found'
-            ], 400);
-        }
-
-        $updated = $list->fill($request->all())->save();
-
-        if ($updated) {
-            return response()->json([
-                'success' => true
-            ]);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Sorry, product could not be updated'
-            ], 500);
-        }
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RecipeList  $recipeList
+     * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $list = $this->user->recipeLists()->find($id);
+        $recipe = $this->user->recipes()->find($id);
 
-        if (!$list) {
+        if (!$recipe) {
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, list with id ' . $id . ' cannot be found'
+                'message' => 'Sorry, recipe with id ' . $id . ' cannot be found'
             ], 400);
         }
 
-        if ($list->delete()) {
+        if ($recipe->delete()) {
             return response()->json([
                 'succes' => true
             ]);
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'List could not be deleted'
+                'message' => 'recipe could not be deleted'
             ]);
         }
     }
