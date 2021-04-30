@@ -15,7 +15,8 @@ class CreateRecipesTable extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
-            $table->integer('api_id');
+            $table->string('label');
+            $table->string('image');
             $table->foreignId('recipelist_id');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

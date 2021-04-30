@@ -24,7 +24,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return $this->user->recipes()->get(['id', 'api_id', 'recipelist_id', 'user_id']);
+        return $this->user->recipes()->get(['id', 'label', 'image', 'recipelist_id', 'user_id']);
     }
 
     /**
@@ -46,12 +46,14 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'api_id' => 'required',
+            'label' => 'required',
+            'image' => 'required',
             'recipelist_id' => 'required',
         ]);
 
         $recipe = new Recipe();
-        $recipe->api_id = $request->api_id;
+        $recipe->label = $request->label;
+        $recipe->image = $request->image;
         $recipe->recipelist_id = $request->recipelist_id;
         $recipe->user_id = $request->user_id;
 
