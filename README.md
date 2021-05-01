@@ -5,17 +5,17 @@ Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
 
 - [X] Kunna registrera konto i API:et (skapa användare, logga in, logga ut)
 - [X] Nyttjar JWT baserade tokens för kommunikation eller implementation av Laravel Sanctum
-- [ ] Spara skapade receptlistor
-- [ ] Användare ska kunna spara listor på recept. Listan har som minimumkrav att innehålla:
+- [X] Spara skapade receptlistor
+- [X] Användare ska kunna spara listor på recept. Listan har som minimumkrav att innehålla:
 - titel
 - vilka recept som ingår
 - [ ] Användaren ska kunna lägga till en lista, läsa in en lista, ändra en lista och ta bort en lista
-- [ ] Samtliga listor måste vara knutna till en användare och får bara ändras/läsas av samma användare
+- [X] Samtliga listor måste vara knutna till en användare och får bara ändras/läsas av samma användare
 - [ ] Recept får endast förekomma en gång i en och samma lista, men kan förekomma i olika listor
-- [ ] Data för specifika recept ska fortfarande hämtas från externt API
+- [X] Data för specifika recept ska fortfarande hämtas från externt API
 
 ## Nya frontend-krav
-- [ ] användaren ska kunna skapa användare, logga in och logga ut
+- [X] användaren ska kunna skapa användare, logga in och logga ut
 - [ ] användaren ska kunna utföra CRUD på egna receptlistor
 
 
