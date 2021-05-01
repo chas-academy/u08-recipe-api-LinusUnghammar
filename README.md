@@ -11,7 +11,7 @@ Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
 - vilka recept som ingår
 - [ ] Användaren ska kunna lägga till en lista, läsa in en lista, ändra en lista och ta bort en lista
 - [X] Samtliga listor måste vara knutna till en användare och får bara ändras/läsas av samma användare
-- [ ] Recept får endast förekomma en gång i en och samma lista, men kan förekomma i olika listor
+- [X] Recept får endast förekomma en gång i en och samma lista, men kan förekomma i olika listor
 - [X] Data för specifika recept ska fortfarande hämtas från externt API
 
 ## Nya frontend-krav
