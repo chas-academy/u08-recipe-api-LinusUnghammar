@@ -56,17 +56,23 @@ class RecipeController extends Controller
         $recipe->image = $request->image;
         $recipe->recipelist_id = $request->recipelist_id;
         $recipe->user_id = $request->user_id;
-
-        if ($this->user->recipes()->save($recipe)) {
-            return response()->json([
-                'success' => true,
-                'recipe' => $recipe
-            ]);
+        
+        if ( $this->user->recipes()->where('recipelist_id', $request->recipelist_id)->where('label', $request->label)->exists()){
+            return response()->json(
+                ['message' => 'Recipe is already saved to this list']
+            );
         } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'sorry, recipe could not be added'
-            ]);
+            if ($this->user->recipes()->save($recipe)) {
+                return response()->json([
+                    'success' => true,
+                    'recipe' => $recipe
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'sorry, recipe could not be added'
+                ]);
+            }
         }
     }
 
