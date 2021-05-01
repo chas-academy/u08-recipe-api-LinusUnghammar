@@ -78,12 +78,12 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
-        $recipe = $this->user->recipes()->find($id);
+        $recipe = $this->user->recipes()->where('recipelist_id', $id)->get();
 
         if(!$recipe){
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, recipe with id '. $id . ' cannot be found'
+                'message' => 'Sorry, list with id '. $id . ' cannot be found'
             ]);
         }
         return $recipe;
