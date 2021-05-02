@@ -9,14 +9,14 @@ Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
 - [X] Användare ska kunna spara listor på recept. Listan har som minimumkrav att innehålla:
 - titel
 - vilka recept som ingår
-- [ ] Användaren ska kunna lägga till en lista, läsa in en lista, ändra en lista och ta bort en lista
+- [X] Användaren ska kunna lägga till en lista, läsa in en lista, ändra en lista och ta bort en lista
 - [X] Samtliga listor måste vara knutna till en användare och får bara ändras/läsas av samma användare
 - [X] Recept får endast förekomma en gång i en och samma lista, men kan förekomma i olika listor
 - [X] Data för specifika recept ska fortfarande hämtas från externt API
 
 ## Nya frontend-krav
 - [X] användaren ska kunna skapa användare, logga in och logga ut
-- [ ] användaren ska kunna utföra CRUD på egna receptlistor
+- [X] användaren ska kunna utföra CRUD på egna receptlistor
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
