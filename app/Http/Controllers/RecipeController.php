@@ -10,7 +10,7 @@ use Validator;
 
 class RecipeController extends Controller
 {
-
+    // gets current user
     protected $user;
 
     public function __construct()
@@ -22,6 +22,7 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // gets all recipes saved by user 
     public function index()
     {
         return $this->user->recipes()->get(['id', 'label', 'image', 'recipelist_id', 'user_id']);
@@ -43,6 +44,8 @@ class RecipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    /* stores recipe to list but only 
+    but only if recipe dont exist on list*/  
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -82,6 +85,7 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
+    // gets saved recipes in specific list 
     public function show($id)
     {
         $recipe = $this->user->recipes()->where('recipelist_id', $id)->get();

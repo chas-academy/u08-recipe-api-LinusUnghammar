@@ -11,6 +11,7 @@ use Validator;
 class RecipeListController extends Controller
 {
 
+    // gets current user
     protected $user;
 
     public function __construct()
@@ -23,6 +24,7 @@ class RecipeListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // gets all saved lists by user 
     public function index()
     {
         return $this->user->recipeLists()->get(['title', 'id']);
@@ -44,6 +46,7 @@ class RecipeListController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // saves new list to user 
     public function store(Request $request)
     {
         $this->validate($request, [
