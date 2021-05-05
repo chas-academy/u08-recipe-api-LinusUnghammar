@@ -1,5 +1,6 @@
 # u08 Backend for recipe app
 Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
+Deployed website: https://jannes-favoriter.netlify.app/
 
 ## Requirements
 
