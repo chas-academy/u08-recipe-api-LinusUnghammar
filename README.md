@@ -1,5 +1,4 @@
 # u08 Backend for recipe app
-Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
 Deployed website: https://jannes-favoriter.netlify.app/
 
 ## Requirements
@@ -18,6 +17,9 @@ Deployed website: https://jannes-favoriter.netlify.app/
 ## Nya frontend-krav
 - [X] användaren ska kunna skapa användare, logga in och logga ut
 - [X] användaren ska kunna utföra CRUD på egna receptlistor
+
+## Frontend
+Frontend repo: https://github.com/chas-academy/u07-recipe-app-LinusUnghammar
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
